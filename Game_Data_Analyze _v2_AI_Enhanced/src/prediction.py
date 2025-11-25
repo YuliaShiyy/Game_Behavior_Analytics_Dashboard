@@ -8,17 +8,17 @@ import plotly.express as px
 
 
 def render_prediction(filtered_data, render=True):
-    # 检查是否包含预测数据
+    # Check if it contains forecast data
     if "Churn_Prob" not in filtered_data.columns:
         if render:
             st.warning("Prediction data missing.")
         return None, None
 
-    # 1. 风险概览 KPI
+    # 1. Risk Overview KPIs
     high_risk_users = filtered_data[filtered_data["Risk_Level"] == "High Risk 🔴"]
     risk_rate = len(high_risk_users) / len(filtered_data) * 100 if len(filtered_data) > 0 else 0
 
-    # 2. 流失概率分布图 (Histogram)
+    # 2. Churn probability distribution chart (Histogram)
     fig_hist = px.histogram(
         filtered_data,
         x="Churn_Prob",
@@ -47,12 +47,12 @@ def render_prediction(filtered_data, render=True):
 
         st.plotly_chart(fig_hist, use_container_width=True)
 
-        # 3. 高风险用户列表 (Actionable Insights)
+        # 3. High-risk user list (Actionable Insights)
         st.subheader("🚨 High Risk Cohort (Action Required)")
         st.caption("Top 10 players most likely to churn. Recommended Action: Send 'Come Back' gift.")
 
         display_cols = ["PlayerID", "Age", "SessionsPerWeek", "Persona", "Churn_Prob"]
-        # 确保列存在
+        # Ensure the column exists
         cols_to_show = [c for c in display_cols if c in filtered_data.columns]
 
         st.dataframe(
@@ -60,5 +60,6 @@ def render_prediction(filtered_data, render=True):
             use_container_width=True
         )
 
-    # 返回一个模拟的准确率 (0.85) 和图表，保持与 main app 的接口一致
+    # Returns a simulation accuracy (0.85) and a graph, maintaining consistency with the main app's interface.
+
     return 0.85, fig_hist
