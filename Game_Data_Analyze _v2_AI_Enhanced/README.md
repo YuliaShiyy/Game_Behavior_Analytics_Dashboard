@@ -80,3 +80,12 @@ streamlit run app.py
 - Select "Cluster Analysis" to view the 3D Persona map.
 
 - Select "Predictive Modeling" to view the Churn Risk predictions.
+
+---
+
+📊 Methodology Details
+Feature,Method,Features Used
+Segmentation,K-Means (k=5),"Age, Sessions/Week, PlayerLevel, Spend"
+Churn Prediction,Logistic Regression,"Sessions/Week (Target), Age, Level, Spend"
+Persona Naming,Dictionary Mapping,Derived from Cluster Centroid Analysis
+
