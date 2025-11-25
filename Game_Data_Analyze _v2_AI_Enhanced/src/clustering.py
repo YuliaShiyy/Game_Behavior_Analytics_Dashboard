@@ -8,27 +8,26 @@ import pandas as pd
 
 
 def render_clustering(filtered_data, render=True):
-    # 检查 AI 数据是否存在
+    # Check if AI data exists
     if "Persona" not in filtered_data.columns:
         if render:
             st.warning("⚠️ AI Persona data missing. Please check data_loader.")
         return None, None
 
-    # 1. 3D 散点图 (使用 AI 生成的 Persona 着色)
-    # 对应简历: "visualizing AI-generated segments"
+    # 1. 3D scatter plot (using AI-generated Persona coloring)
     fig_cluster = px.scatter_3d(
         filtered_data,
         x="Age",
         y="SessionsPerWeek",
         z="PlayerLevel",
-        color="Persona",  # <--- 关键修改：展示 AI 标签
+        color="Persona",  # <--- Key change: Display AI tag
         hover_data=["Persona_Desc", "InGamePurchases"],
         title="🤖 AI-Driven Player Segmentation (5 Personas)",
         color_discrete_sequence=px.colors.qualitative.Bold
     )
 
-    # 2. 统计各 Persona 的均值
-    # 只取数值列进行平均
+    # 2. Calculate the mean of each Persona.
+    # Average only the numerical column
     numeric_cols = ["Age", "SessionsPerWeek", "PlayerLevel", "InGamePurchases"]
     cluster_summary = filtered_data.groupby("Persona")[numeric_cols].mean().round(2)
 
@@ -52,5 +51,6 @@ def render_clustering(filtered_data, render=True):
 
         st.write("**📊 Behavioral Profile by Persona (Average Stats)**")
         st.dataframe(cluster_summary, use_container_width=True)
+
 
     return fig_cluster, cluster_summary
