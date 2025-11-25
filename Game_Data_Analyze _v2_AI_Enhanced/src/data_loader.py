@@ -9,52 +9,53 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.linear_model import LogisticRegression
 
-# 引入 AI 标签模块
 import ai_persona
 
 
 @st.cache_data
 def load_data():
     """
-    智能加载数据：优先读取清洗版，如果没有则读取原始版并自动清洗。
-    同时执行 AI 计算流程。
+    Intelligent data loading: Prioritizes reading the cleaned version; if unavailable, 
+    reads the original version and automatically cleans it.
+
+    Simultaneously executes AI computation processes.
     """
 
-    # 1. 定义文件路径
-    clean_file = "gaming_data_cleaned.csv"
-    europe_file = "gaming_data_europe.csv"
-    # 这里是你确认存在的原始 Kaggle 数据路径
-    raw_file = "OnlineGamingBehavior/online_gaming_behavior_dataset.csv"
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(current_dir, '..', 'data')
+    
+    # Define the path to the specific file
+    clean_file = os.path.join(data_dir, "gaming_data_cleaned.csv")
+    europe_file = os.path.join(data_dir, "gaming_data_europe.csv")
 
-    # 2. 尝试加载数据
+    raw_file = os.path.join(data_dir, "online_gaming_behavior_dataset.csv")
+
+    # 2. Try loading data
     if os.path.exists(clean_file):
-        # 情况A：如果运行过 data_clean.py，直接读取清洗好的数据
+        # Scenario A: If data_clean.py has been run, directly read the cleaned data.
         df = pd.read_csv(clean_file)
-        # 尝试读取欧洲数据，如果没有就从 df 里切分
+        #Try reading European data; if not, split it from df.
         if os.path.exists(europe_file):
             df_europe = pd.read_csv(europe_file)
         else:
             df_europe = df[df['Location'] == 'Europe'].copy()
     else:
-        # 情况B：如果没有清洗好的文件，直接读取 Kaggle 原始数据
-        # 这样保证你的 App 永远不会因为缺文件而报错
+        # Scenario B: If there are no cleaned files, directly read the raw Kaggle data.
+        # This ensures your app will never report an error due to missing files.
         try:
             df = pd.read_csv(raw_file)
-            # 自动执行简单的清洗（去重）
             df = df.drop_duplicates()
-            # 自动生成欧洲数据
             df_europe = df[df['Location'] == 'Europe'].copy()
         except FileNotFoundError:
-            st.error(f" 错误：找不到原始数据文件。请确认 {raw_file} 存在。")
+            st.error(f" Error: Raw data file not found. Please verify that {raw_file} exists.")
             return pd.DataFrame(), pd.DataFrame()
 
     # ================= AI PIPELINE START =================
-    # 这一步是为了给数据加上 AI 标签 (Persona, Churn Risk)
+    # This step is to add AI labels (Persona, Churn Risk) to the data.
 
     # --- A. AI Clustering (K-Means) ---
-    # 选取特征
     clu_features = ["Age", "SessionsPerWeek", "PlayerLevel", "InGamePurchases"]
-    # 确保列存在，防止报错
+    # Ensure the column exists to prevent errors.
     valid_clu_features = [c for c in clu_features if c in df.columns]
 
     if valid_clu_features:
@@ -65,18 +66,18 @@ def load_data():
         kmeans = KMeans(n_clusters=5, random_state=42, n_init=10)
         df["Cluster"] = kmeans.fit_predict(X_scaled)
 
-        # 调用 LLM 模块打标签
+        # Tagging using the LLM module
         df = ai_persona.apply_persona_tags(df)
     else:
-        # 如果列不对，给个默认值防止后续代码崩溃
+        # If the columns are incorrect, provide a default value to prevent subsequent code crashes.
         df["Persona"] = "Standard Player"
 
     # --- B. Predictive Analytics (Churn Risk) ---
-    # 定义流失：每周会话少于 2 次
+    # Define churn as fewer than 2 sessions per week.
     if "SessionsPerWeek" in df.columns:
         df["Is_Churn"] = df["SessionsPerWeek"].apply(lambda x: 1 if x < 2 else 0)
 
-        # 训练逻辑回归
+        # Training Logistic Regression
         pred_features = ["Age", "PlayerLevel", "InGamePurchases"]
         valid_pred_features = [c for c in pred_features if c in df.columns]
 
@@ -95,7 +96,7 @@ def load_data():
     else:
         df["Churn_Prob"] = 0.0
 
-    # 划分风险等级
+    # Risk level classification
     def risk_level(prob):
         if prob > 0.7:
             return "High Risk 🔴"
@@ -113,7 +114,7 @@ def load_data():
 
 def filter_data(df, selected_region, genres, genders, purchase_filter):
     """
-    侧边栏筛选逻辑
+    Sidebar Filtering Logic
     """
     data = df.copy()
 
@@ -132,5 +133,6 @@ def filter_data(df, selected_region, genres, genders, purchase_filter):
     elif purchase_filter == "Not-paid players":
         if "InGamePurchases" in data.columns:
             data = data[data["InGamePurchases"] == 0]
+
 
     return data
