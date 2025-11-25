@@ -58,6 +58,7 @@ This project adopts a **"Hybrid AI Architecture"** optimized for production perf
   │   ├── clustering.py           # 3D Visualization Module
   │   ├── prediction.py           # Churn Risk Module
   │   └── ...
+  ├── README.md                   # Read   
   └── requirements.txt            # Dependencies
 ```
 ---
