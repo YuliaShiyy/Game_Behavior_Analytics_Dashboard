@@ -35,28 +35,28 @@ This version addresses the core question: **"What happened in the past?"**. It p
 ## 📂 Project Structure
 
 ```text
-    Game_Data_Analyze/
-    │── data/                                     # Datasets
-    │ ├── gaming_data_cleaned.csv
-    │ ├── gaming_data_europe.csv
-    │ └── online_gaming_behavior_dataset.csv
-    │
-    │── notebooks/                                # Jupyter notebooks
-    │ └── data_clean.ipynb
-    │
-    │── src/                                      # Source code
-    │ ├── app.py                                  # Main dashboard entry
-    │ ├── clustering.py                           # Cluster analysis module
-    │ ├── correlation.py                          # Correlation analysis module
-    │ ├── data_loader.py                          # Data loading & preprocessing
-    │ ├── overview.py                             # Overview module
-    │ ├── prediction.py                           # Predictive modeling
-    │ ├── report_export.py                        # Export to PDF
-    │ ├── retention.py                            # Retention & funnel analysis
-    │ └── simulation_trend.py                     # Trend simulation
-    │
-    │── requirements.txt                          # Dependencies
-    └── README.md                                 # Project documentation
+ Game_Data_Analyze/
+ │── data/                                     # Datasets
+ │ ├── gaming_data_cleaned.csv
+ │ ├── gaming_data_europe.csv
+ │ └── online_gaming_behavior_dataset.csv
+ │
+ │── notebooks/                                # Jupyter notebooks
+ │ └── data_clean.ipynb
+ │
+ │── src/                                      # Source code
+ │ ├── app.py                                  # Main dashboard entry
+ │ ├── clustering.py                           # Cluster analysis module
+ │ ├── correlation.py                          # Correlation analysis module
+ │ ├── data_loader.py                          # Data loading & preprocessing
+ │ ├── overview.py                             # Overview module
+ │ ├── prediction.py                           # Predictive modeling
+ │ ├── report_export.py                        # Export to PDF
+ │ ├── retention.py                            # Retention & funnel analysis
+ │ └── simulation_trend.py                     # Trend simulation
+ │
+ │── requirements.txt                          # Dependencies
+ └── README.md                                 # Project documentation
 ```
 ---
 
@@ -74,7 +74,7 @@ Clone this repo and install dependencies:
 
 1.Navigate to the source directory: (Important: The app must be run from the src folder)
 ```bash
-    streamlit run app.py
+streamlit run app.py
 ```
 2.Run the Streamlit App:
 ```bash
