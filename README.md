@@ -51,7 +51,7 @@ This project is part of my portfolio and demonstrates skills in **data engineeri
     │ └── simulation_trend.py # Trend simulation
     │
     │── requirements.txt # Dependencies
-    │── README.md # Project documentation
+    └── README.md # Project documentation
 
 ---
 
