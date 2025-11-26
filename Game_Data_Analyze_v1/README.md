@@ -1,71 +1,63 @@
-# 🎮 Player Behavior Analysis Dashboard
+# 📊 Standard Game Analytics Dashboard (V1)
 
-An interactive dashboard built with **Streamlit** and **Plotly** for analyzing online gaming behavior data.  
-This project is part of my portfolio and demonstrates skills in **data engineering, data analysis, and visualization**.
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B.svg)
+![Plotly](https://img.shields.io/badge/Visualization-Plotly-green.svg)
+![Status](https://img.shields.io/badge/Status-Descriptive-success.svg)
 
----
-
-## 🚀 Features
-
-✅ **Overview**: Core metrics (players, age, sessions, engagement, payment) and demographic distribution  
-✅ **Retention & Funnel Analysis**: Simulated day-1, day-7, day-30 retention; conversion funnel  
-✅ **Trend Simulation**: Monthly new players, paying players, average sessions  
-✅ **Correlation Analysis**: Pearson correlation, heatmap, scatter plots, boxplots  
-✅ **Cluster Analysis (KMeans)**: Player segmentation by Age / Sessions / Level  
-✅ **Predictive Modeling (Logistic Regression)**: Predicting paying players  
-✅ **Export Report (PDF)**: Export current page’s metrics, charts, and analysis  
+> **Foundational Version:** This project establishes a robust framework for **Descriptive Analytics**, focusing on visualizing historical player behavior, retention rates, and conversion funnels.
 
 ---
 
-## 🛠️ Tech Stack
+## 🎯 Key Capabilities
 
-- [Streamlit](https://streamlit.io/) – Interactive UI
-- [Pandas](https://pandas.pydata.org/) – Data manipulation
-- [Plotly](https://plotly.com/python/) – Interactive charts
-- [Scikit-learn](https://scikit-learn.org/) – Clustering & prediction
-- [SciPy](https://scipy.org/) – Statistical tests
-- [ReportLab](https://www.reportlab.com/) – PDF export
-- [Kaleido](https://github.com/plotly/Kaleido) – Save Plotly charts as images
+This version addresses the core question: **"What happened in the past?"**. It provides essential KPIs for game operation monitoring.
+
+### 1. 📈 Retention & Funnel Analysis
+* **Retention:** Visualizes player stickiness using classic Day 1, Day 7, and Day 30 retention metrics.
+* **Conversion Funnel:** Tracks the user journey from *Total Players* → *Active Users* → *Highly Engaged* → *Paying Users*.
+* **Business Value:** Helps identify where players drop off in the lifecycle.
+
+### 2. 🗓️ Simulated Trend Analysis
+* **Time-Series Visualization:** Generates simulated monthly trends for:
+    * New Player Acquisition.
+    * Revenue (Paying Players).
+    * Engagement (Average Sessions).
+* **Function:** Allows analysts to observe seasonal patterns and growth trajectories.
+
+### 3. 🔗 Statistical Correlation
+* **Tech Stack:** Pearson & Spearman Correlation (SciPy).
+* **Function:** A heatmap and scatter plot module to analyze relationships between variables (e.g., *"Does higher Age correlate with higher Spend?"*).
+* **Significance Test:** Includes P-value testing to ensure statistical validity.
 
 ---
 
 ## 📂 Project Structure
+
+```text
     Game_Data_Analyze/
-    │── data/ # Datasets
+    │── data/                                     # Datasets
     │ ├── gaming_data_cleaned.csv
     │ ├── gaming_data_europe.csv
     │ └── online_gaming_behavior_dataset.csv
     │
-    │── notebooks/ # Jupyter notebooks
+    │── notebooks/                                # Jupyter notebooks
     │ └── data_clean.ipynb
     │
-    │── src/ # Source code
-    │ ├── app.py # Main dashboard entry
-    │ ├── clustering.py # Cluster analysis module
-    │ ├── correlation.py # Correlation analysis module
-    │ ├── data_loader.py # Data loading & preprocessing
-    │ ├── overview.py # Overview module
-    │ ├── prediction.py # Predictive modeling
-    │ ├── report_export.py # Export to PDF
-    │ ├── retention.py # Retention & funnel analysis
-    │ └── simulation_trend.py # Trend simulation
+    │── src/                                      # Source code
+    │ ├── app.py                                  # Main dashboard entry
+    │ ├── clustering.py                           # Cluster analysis module
+    │ ├── correlation.py                          # Correlation analysis module
+    │ ├── data_loader.py                          # Data loading & preprocessing
+    │ ├── overview.py                             # Overview module
+    │ ├── prediction.py                           # Predictive modeling
+    │ ├── report_export.py                        # Export to PDF
+    │ ├── retention.py                            # Retention & funnel analysis
+    │ └── simulation_trend.py                     # Trend simulation
     │
-    │── requirements.txt # Dependencies
-    │── README.md # Project documentation
-
----
-
-## 📊 Example Dashboard
-### Overview
-![overview](assets/overview.png)
-
-### Retention & Funnel
-![retention](assets/retention&funnel.png)
-
-### Simulation Trend
-![correlation](assets/simulation_trend.png)
-
-
+    │── requirements.txt                          # Dependencies
+    │── README.md                                 # Project documentation
+```
 ---
 
 ## ⚡ Installation
@@ -78,19 +70,43 @@ Clone this repo and install dependencies:
     pip install -r requirements.txt
 ---
 
-## ▶️ Usage
+## 🚀 How to Run
 
-Run the Streamlit app:
-
+1.Navigate to the source directory: (Important: The app must be run from the src folder)
+```bash
     streamlit run app.py
+```
+2.Run the Streamlit App:
+```bash
+streamlit run app.py
+```
+3.Explore the Modules:
+
+- Go to the Sidebar.
+
+- Select "Retention & Funnel" to view lifecycle metrics.
+
+- Select "Correlation Analysis" to view statistical heatmaps.
 
 --- 
+
+📊 Methodology Details
+| Metric | Definition | Logic Used |
+| :--- | :--- | :--- |
+| **Day 1 Retention** | Users playing ≥1 session/week | `Sessions >= 1` |
+| **Day 7 Retention** | Users playing ≥2 sessions/week | `Sessions >= 2` |
+| **Conversion Funnel** | Step-by-step user drop-off | Count(Total) → Count(Active) → Count(Paid) |
+| **Correlation** | Linear relationship strength | Pearson Coefficient (r) + P-value |
+
+---
 
 ## 📂 Data
 
 Dataset used: Kaggle - Predict Online Gaming Behaviour Dataset
 .
 For demo purposes, pre-cleaned datasets are placed in the data/ folder.
+
+---
 
 ## 📌 To Do / Possible Extensions
 
