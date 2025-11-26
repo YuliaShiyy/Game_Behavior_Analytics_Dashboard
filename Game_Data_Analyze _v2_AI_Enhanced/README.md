@@ -91,3 +91,10 @@ streamlit run app.py
 | **Churn Prediction** | Logistic Regression | Sessions/Week (Target), Age, Level, Spend |
 | **Persona Naming** | Dictionary Mapping | Derived from Cluster Centroid Analysis |
 
+---
+
+## 📂 Data
+
+Dataset used: Kaggle - Predict Online Gaming Behaviour Dataset
+.
+For demo purposes, pre-cleaned datasets are placed in the data/ folder.
