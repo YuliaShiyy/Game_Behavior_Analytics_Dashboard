@@ -47,19 +47,29 @@ This project adopts a **"Hybrid AI Architecture"** optimized for production perf
 ## 📂 Project Structure
 
 ```text
-  Game_Data_Analyze_v2_AI_Enhanced/
-  ├── data/                       # Dataset files
-  │   ├── gaming_data_cleaned.csv
-  │   └── ...
-  ├── src/                        # Source Code
-  │   ├── app.py                  # Main Application Entry
-  │   ├── data_loader.py          # AI Pipeline (Clustering + Prediction)
-  │   ├── ai_persona.py           # AI Tagging Logic
-  │   ├── clustering.py           # 3D Visualization Module
-  │   ├── prediction.py           # Churn Risk Module
-  │   └── ...
-  ├── README.md                   # Read   
-  └── requirements.txt            # Dependencies
+ Game_Data_Analyze/
+    │── data/                                 # Datasets
+    │ ├── gaming_data_cleaned.csv
+    │ ├── gaming_data_europe.csv
+    │ └── online_gaming_behavior_dataset.csv
+    │
+    │── notebooks/                            # Jupyter notebooks
+    │ └── data_clean.ipynb
+    │
+    │── src/                                  # Source code
+    │ ├── ai_persona.py                       # AI Tagging Logic
+    │ ├── app.py                              # Main dashboard entry
+    │ ├── clustering.py                       # Cluster analysis module
+    │ ├── correlation.py                      # Correlation analysis module
+    │ ├── data_loader.py                      # Data loading & preprocessing
+    │ ├── overview.py                         # Overview module
+    │ ├── prediction.py                       # Predictive modeling
+    │ ├── report_export.py                    # Export to PDF
+    │ ├── retention.py                        # Retention & funnel analysis
+    │ └── simulation_trend.py                 # Trend simulation
+    │
+    │── requirements.txt # Dependencies
+    └── README.md # Project documentation
 ```
 ---
 
