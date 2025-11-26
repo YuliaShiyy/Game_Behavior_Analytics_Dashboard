@@ -90,7 +90,7 @@ streamlit run app.py
 
 --- 
 
-📊 Methodology Details
+## 📊 Methodology Details
 | Metric | Definition | Logic Used |
 | :--- | :--- | :--- |
 | **Day 1 Retention** | Users playing ≥1 session/week | `Sessions >= 1` |
