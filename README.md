@@ -1,103 +1,82 @@
-# 🎮 Player Behavior Analysis Dashboard
+# 🎮 Game Player Behavior Analytics Platform
 
-An interactive dashboard built with **Streamlit** and **Plotly** for analyzing online gaming behavior data.  
-This project is part of my portfolio and demonstrates skills in **data engineering, data analysis, and visualization**.
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B)
+![Machine Learning](https://img.shields.io/badge/AI-Scikit--Learn-orange)
+![Status](https://img.shields.io/badge/Status-Project%20Complete-green)
 
----
-
-## 🚀 Features
-
-✅ **Overview**: Core metrics (players, age, sessions, engagement, payment) and demographic distribution  
-✅ **Retention & Funnel Analysis**: Simulated day-1, day-7, day-30 retention; conversion funnel  
-✅ **Trend Simulation**: Monthly new players, paying players, average sessions  
-✅ **Correlation Analysis**: Pearson correlation, heatmap, scatter plots, boxplots  
-✅ **Cluster Analysis (KMeans)**: Player segmentation by Age / Sessions / Level  
-✅ **Predictive Modeling (Logistic Regression)**: Predicting paying players  
-✅ **Export Report (PDF)**: Export current page’s metrics, charts, and analysis  
+> **A full-stack data analytics platform enabling Game Studios to understand player lifecycles, improving retention through Descriptive Analytics and Predictive AI.**
 
 ---
 
-## 🛠️ Tech Stack
+## 📖 Project Evolution Story
 
-- [Streamlit](https://streamlit.io/) – Interactive UI
-- [Pandas](https://pandas.pydata.org/) – Data manipulation
-- [Plotly](https://plotly.com/python/) – Interactive charts
-- [Scikit-learn](https://scikit-learn.org/) – Clustering & prediction
-- [SciPy](https://scipy.org/) – Statistical tests
-- [ReportLab](https://www.reportlab.com/) – PDF export
-- [Kaleido](https://github.com/plotly/Kaleido) – Save Plotly charts as images
+This repository demonstrates the evolution of a data science project from **Foundational Analytics** to **Advanced AI Implementation**. It is structured into two versions to showcase different levels of data maturity:
 
----
+### 🚀 [V2: AI-Enhanced Version (Recommended)](./Game_Data_Analyze_v2_AI_Enhanced)
+> *Focus: Predictive & Prescriptive Analytics ("What will happen?")*
 
-## 📂 Project Structure
-    Game_Data_Analyze/
-    │── data/ # Datasets
-    │ ├── gaming_data_cleaned.csv
-    │ ├── gaming_data_europe.csv
-    │ └── online_gaming_behavior_dataset.csv
-    │
-    │── notebooks/ # Jupyter notebooks
-    │ └── data_clean.ipynb
-    │
-    │── src/ # Source code
-    │ ├── app.py # Main dashboard entry
-    │ ├── clustering.py # Cluster analysis module
-    │ ├── correlation.py # Correlation analysis module
-    │ ├── data_loader.py # Data loading & preprocessing
-    │ ├── overview.py # Overview module
-    │ ├── prediction.py # Predictive modeling
-    │ ├── report_export.py # Export to PDF
-    │ ├── retention.py # Retention & funnel analysis
-    │ └── simulation_trend.py # Trend simulation
-    │
-    │── requirements.txt # Dependencies
-    └── README.md # Project documentation
+* **Core Tech:** Machine Learning (K-Means, Logistic Regression), Rule-Based NLG.
+* **Key Features:**
+    * 🤖 **AI Segmentation:** Groups players into 5 personas (e.g., *Whales, Grinders*) using Clustering.
+    * 🔮 **Churn Prediction:** Estimates the probability of user churn in real-time.
+    * 💡 **Smart Insights:** Auto-generates business insights without API latency.
+* **Architecture:** Hybrid Offline-AI pipeline for GDPR compliance and zero-latency performance.
+
+### 📊 [V1: Standard Version](./Game_Data_Analyze_v1)
+> *Focus: Descriptive Analytics ("What happened?")*
+
+* **Core Tech:** Statistical Analysis (SciPy), Plotly.
+* **Key Features:**
+    * 📈 **Retention Funnels:** Visualizes user drop-off rates (Day 1/7/30).
+    * 🔗 **Correlation Analysis:** Statistical testing of player behaviors.
+    * 📉 **Trend Simulation:** Historical data visualization.
 
 ---
 
-## 📊 Example Dashboard
-### Overview
-![overview](assets/overview.png)
+## 📂 Repository Structure
 
-### Retention & Funnel
-![retention](assets/retention&funnel.png)
+```text
+Game_Behavior_Analytics/
+│
+├── 📂 Game_Data_Analyze_v2_AI_Enhanced/  <-- 🌟 Start Here!
+│   ├── src/             # Streamlit App & AI Models
+│   ├── data/            # Datasets
+│   └── README.md        # Detailed Documentation for V2
+│
+├── 📂 Game_Data_Analyze_v1/              <-- Legacy Version
+│   ├── src/             # Streamlit App & Statistical Modules
+│   ├── data/            # Datasets
+│   └── README.md        # Detailed Documentation for V1
+│
+└── README.md            # You are here
+```
+---
 
-### Simulation Trend
-![correlation](assets/simulation_trend.png)
-
+## 🛠️ Tech Stack & Skills Demonstrated
+| Category | Technologies / Skills |
+| :--- | :--- |
+| **Language** | Python 3.9+ |
+| **Web Framework** | Streamlit (Component-based architecture) |
+| **Machine Learning** | Scikit-Learn (K-Means, Logistic Regression) |
+| **Data Processing** | Pandas, NumPy |
+| **Visualization** | Plotly Interactive Charts |
+| **Engineering** | Modular Design, Offline Inference, GDPR-Aware Architecture |
 
 ---
 
-## ⚡ Installation
-
-Clone this repo and install dependencies:
-
-    ```bash
-    git clone https://github.com/YuliaShiyy/Game_Data_Analyze.git
-    cd Game_Data_Analyze
-    pip install -r requirements.txt
----
-
-## ▶️ Usage
-
-Run the Streamlit app:
-
-    streamlit run app.py
-
---- 
-
-## 📂 Data
-
-Dataset used: Kaggle - Predict Online Gaming Behaviour Dataset
-.
-For demo purposes, pre-cleaned datasets are placed in the data/ folder.
-
-## 📌 To Do / Possible Extensions
-
-    · Add time-series forecasting for player retention
-    
-    · Deploy the dashboard online (e.g., Streamlit Cloud / Heroku)
-    
-    · Add more machine learning models (e.g., Random Forest, XGBoost)
-    
-    · Multi-language support 
+## 🚀 Quick Start
+To run the latest AI-Enhanced version:
+1.Clone the repo:
+```bash
+git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
+```
+2.Install dependencies:
+```bash
+pip install -r Game_Data_Analyze_v2_AI_Enhanced/requirements.txt
+```
+3.Run the app:
+```bash
+cd Game_Data_Analyze_v2_AI_Enhanced/src
+streamlit run app.py
+```
