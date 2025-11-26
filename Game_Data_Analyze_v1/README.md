@@ -56,7 +56,7 @@ This version addresses the core question: **"What happened in the past?"**. It p
     │ └── simulation_trend.py                     # Trend simulation
     │
     │── requirements.txt                          # Dependencies
-    │── README.md                                 # Project documentation
+    └── README.md                                 # Project documentation
 ```
 ---
 
