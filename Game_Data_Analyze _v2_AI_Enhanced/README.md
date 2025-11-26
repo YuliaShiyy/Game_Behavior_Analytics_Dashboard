@@ -73,7 +73,7 @@ This project adopts a **"Hybrid AI Architecture"** optimized for production perf
 ```
 ---
 
-🚀 How to Run
+## 🚀 How to Run
 1.Navigate to the source directory: (Important: The app must be run from the src folder)
 
 ```bash
@@ -94,7 +94,7 @@ streamlit run app.py
 
 ---
 
-📊 Methodology Details
+## 📊 Methodology Details
 | Feature | Method | Features Used |
 | :--- | :--- | :--- |
 | **Segmentation** | K-Means (k=5) | Age, Sessions/Week, PlayerLevel, Spend |
